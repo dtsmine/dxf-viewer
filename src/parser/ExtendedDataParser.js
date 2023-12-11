@@ -36,7 +36,7 @@ export default class ExtendedDataParser {
             /* Ignore all the rest content in case of parsing failure. */
             return false
         }
-
+        /*
         if (curr.code == 1000) {
             if (this.lastString) {
                 log.warn("XDATA section unused string: " + this.lastString)
@@ -44,7 +44,7 @@ export default class ExtendedDataParser {
             this.lastString = curr.value
             return false
         }
-
+        */
         const curSection = this._currentSection
 
         if (curr.code == 1002) {
