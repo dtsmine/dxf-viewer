@@ -47,7 +47,7 @@ export type LayerInfo = {
 }
 
 export type EventName = "loaded" | "cleared" | "destroyed" | "resized" | "pointerdown" |
-    "pointerup" | "viewChanged" | "message"
+  "pointerup" | "viewChanged" | "message"
 
 export declare class DxfViewer {
     constructor(domContainer: HTMLElement, options: DxfViewerOptions | null)
@@ -69,6 +69,50 @@ export declare class DxfViewer {
     ShowLayer(name: string, show: boolean): void
     Subscribe(eventName: EventName, eventHandler: (event: any) => void): void
     Unsubscribe(eventName: EventName, eventHandler: (event: any) => void): void
+    GetDxf(): Dxf
+    static DefaultOptions: DxfViewerOptions
+}
+export interface Dxf{
+    entities: Entity[]
+}
+export interface Entity {
+    type: string
+    vertices: Vertex[]
+    handle: string
+    ownerHandle: string
+    layer: string
+    colorIndex: number
+    color: number
+    lineweight: number
+    shape: boolean
+    includesCurveFitVertices: boolean
+    includesSplineFitVertices: boolean
+    is3dPolyline: boolean
+    is3dPolygonMesh: boolean
+    is3dPolygonMeshClosed: boolean
+    isPolyfaceMesh: boolean
+    hasContinuousLinetypePattern: boolean
+    xdata: Xdata
+}
+export interface Vertex {
+    type: string
+    handle: string
+    ownerHandle: string
+    layer: string
+    colorIndex: number
+    color: number
+    lineweight?: number
+    x: number
+    y: number
+    z: number
+}
+
+export interface Xdata {
+    MAPTEK_VULCAN: MaptekVulcan
+}
+
+export interface MaptekVulcan {
+    values: { code: number; value: string }[]
 }
 
 export declare namespace DxfViewer {
