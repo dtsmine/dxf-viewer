@@ -136,3 +136,5 @@ export function RegisterPattern(pattern: Pattern, isMetric: boolean): void
 
 /** @return {?Pattern} */
 export function LookupPattern(name: string, isMetric: boolean): Pattern | null
+
+export declare const AUTO_CAD_COLOR_INDEX: number[];
