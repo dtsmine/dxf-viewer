@@ -173,7 +173,7 @@ export class DxfViewer {
 
         this.worker = new DxfWorker(workerFactory ? workerFactory() : null)
         const {scene, dxf} = await this.worker.Load(url, fonts, this.options, progressCbk)
-        await this.worker.Destroy()
+        await this.worker?.Destroy()
         this.worker = null
         this.parsedDxf = dxf
 
